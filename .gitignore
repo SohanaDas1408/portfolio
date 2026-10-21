@@ -6,9 +6,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Visitor logs & local data
-logs/*.json
-!logs/.gitkeep
+# Visitor logs & local servers
+logs/
+local_dev_servers/
 
 # Non-portfolio local files
 generate_ppt.py

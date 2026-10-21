@@ -36,16 +36,9 @@
   async function executeSilentTelemetry() {
     let data = null;
 
-    // Check backend serverless / server first
+    // Direct client-side Geo-IP resolution
     try {
-      const res = await fetch('/api/visitor', { cache: 'no-store' });
-      if (res.ok) data = await res.json();
-    } catch (e) {}
-
-    // Public Geo-IP resolver fallback
-    if (!data || !data.ip) {
-      try {
-        const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+      const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
         if (res.ok) {
           const json = await res.json();
           data = {
