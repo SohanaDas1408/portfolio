@@ -1,0 +1,16 @@
+# Dependencies & environments
+node_modules/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+Thumbs.db
+
+# Visitor logs & local data
+logs/*.json
+!logs/.gitkeep
+
+# Non-portfolio local files
+generate_ppt.py
+*.pptx
+week 15 and 16/
