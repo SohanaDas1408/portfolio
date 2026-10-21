@@ -1,11 +1,5 @@
 {
-  "version": 2,
-  "rewrites": [
-    {
-      "source": "/api/visitor",
-      "destination": "/api/visitor.js"
-    }
-  ],
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",

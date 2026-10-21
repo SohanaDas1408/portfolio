@@ -1,23 +1,6 @@
 {
   "name": "sohana-das-portfolio",
   "version": "1.0.0",
-  "description": "Self-Portfolio Webpage of Sohana Das with Live Visitor IP Telemetry & Cyber Systems Inspector",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2"
-  },
-  "keywords": [
-    "portfolio",
-    "deep-learning",
-    "nlp",
-    "cybersecurity",
-    "ip-telemetry",
-    "sohana-das"
-  ],
-  "author": "Sohana Das",
-  "license": "MIT"
+  "description": "Professional Portfolio Webpage of Sohana Das",
+  "private": true
 }
