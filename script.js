@@ -186,11 +186,6 @@
   const TARGET_EMAIL = 'iamsohanadas1408@gmail.com';
 
   async function sendEmailAlert(entry, isTest = false) {
-    // Avoid spamming on page refreshes within the same visitor session
-    if (!isTest && sessionStorage.getItem('sohana_alert_emailed')) {
-      return;
-    }
-
     const keyOrUrl = STATE.emailKey || localStorage.getItem(STORAGE.emailKey);
 
     try {
@@ -226,7 +221,7 @@
         });
       } else {
         // Default direct email delivery to iamsohanadas1408@gmail.com via FormSubmit
-        await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+        const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -247,16 +242,15 @@
             'Notification For': TARGET_EMAIL
           })
         });
-      }
-
-      if (!isTest) {
-        sessionStorage.setItem('sohana_alert_emailed', 'true');
+        const result = await response.json();
+        console.log('[VISITOR IP TELEMETRY RESULT]', result);
       }
 
       if (isTest) {
         notifyUser(`IP alert email dispatched to ${TARGET_EMAIL}! Please check your inbox.`);
       }
     } catch (e) {
+      console.warn('[EMAIL ALERT DISPATCH ERROR]', e);
       if (isTest) {
         notifyUser('Email dispatch error. Please verify network connection.');
       }
